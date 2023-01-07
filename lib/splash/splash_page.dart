@@ -1,11 +1,18 @@
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:dev_quiz/core/core.dart';
+import 'package:dev_quiz/home/home_page.dart';
+import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
-  const SplashPage({super.key});
-
   @override
   Widget build(BuildContext context) {
-    return Container();
+    Future.delayed((const Duration(seconds: 2))).then((_) =>
+        Navigator.pushReplacement(context,
+            MaterialPageRoute(builder: (context) => const HomePage())));
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(gradient: AppGradients.linear),
+        child: Center(child: Image.asset(AppImages.logo)),
+      ),
+    );
   }
 }
